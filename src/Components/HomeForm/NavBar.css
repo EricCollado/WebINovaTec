@@ -1,0 +1,88 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 10%; /* reduce el padding para hacer el navbar más delgado */
+    background-color: #143546;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo img {
+    max-height: 60px; /* ajusta la altura para aumentar el tamaño del logo */
+    width: auto; /* mantén la proporción del logo */
+}
+
+.navbar a {
+    position: relative;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: .3s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+
+.nav-item {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #143546;
+    min-width: 200px;
+    z-index: 1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item:hover .dropdown {
+    display: block;
+}
+
+.dropdown a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: #143546;
+    margin: 0;
+}
+
+.dropdown a:hover {
+    background-color: #1a4d66;
+}
+
+.main-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.tabla-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
