@@ -1,0 +1,104 @@
+/* TransaccionForm.css */
+.container {
+    margin-top: 80px; /* Ajuste para que el contenido no quede detrás del navbar */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para mejor contraste */
+    color: white; /* Texto blanco */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para mayor profundidad */
+  }
+  
+  .form-control {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .form-control .MuiInputBase-input, .form-control .MuiInputLabel-root {
+    color: white; /* Texto blanco */
+  }
+  
+  .form-control .MuiOutlinedInput-root fieldset {
+    border-color: white; /* Borde blanco */
+  }
+  
+  .form-control .MuiOutlinedInput-root:hover fieldset {
+    border-color: #ddd; /* Borde blanco más claro en hover */
+  }
+  
+  .form-control .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: white; /* Borde blanco al estar enfocado */
+  }
+  
+  .select-menu {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+  }
+  
+  .card {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+    color: white; /* Texto blanco */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde semi-transparente */
+    margin: 10px;
+    border-radius: 8px;
+  }
+  
+  .card-content {
+    text-align: center;
+  }
+  
+  .card-content h5 {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .card-content p {
+    color: rgba(255, 255, 255, 0.8); /* Texto semi-transparente */
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #007bff; /* Azul brillante */
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3; /* Azul más oscuro en hover */
+  }
+  
+  .select-container {
+    margin-bottom: 30px; /* Espacio extra entre el select y el siguiente contenido */
+  }
+  
+  .select-container select {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .select-container select:focus {
+    border-color: #ddd;
+    outline: none;
+  }
+  
+  .grid-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .amount-input-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .no-cuentas {
+    color: rgba(255, 255, 255, 0.8); /* Texto semi-transparente */
+  }
+  

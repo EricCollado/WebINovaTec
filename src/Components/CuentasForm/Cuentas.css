@@ -1,3 +1,4 @@
+/* Ajustes generales */
 .main-container {
     display: flex;
     flex-direction: column;
@@ -15,6 +16,7 @@
     align-items: center;
 }
 
+/* Ajustes de la tabla de movimientos */
 .titulo-transacciones {
     width: 100%;
     text-align: left;
@@ -60,4 +62,29 @@
         padding: 8px;
         font-size: 14px;
     }
+}
+
+/* Ajustes adicionales para las tarjetas de cuentas */
+.card-container {
+    display: flex;
+    flex-direction: row; /* Asegura que las tarjetas se alineen en fila */
+    justify-content: flex-start; /* Para alinear las tarjetas a la izquierda */
+    align-items: flex-start; /* Alinea las tarjetas en la parte superior */
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card-item {
+    margin: 10px;
+    flex: 1 1 300px; /* Ajuste para que las tarjetas se dispongan en filas */
+    max-width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Similar al estilo de las tablas */
+    border-radius: 8px; /* Similar al estilo de las tablas */
+}
+
+.atras-container {
+  background: transparent;
+}
+.transparent-row {
+    background-color: transparent;
 }

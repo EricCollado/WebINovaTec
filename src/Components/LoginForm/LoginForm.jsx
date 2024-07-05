@@ -1,18 +1,17 @@
 import './LoginForm.css';
 import { FaUser, FaLock } from "react-icons/fa";
 import logo from "../../../src/assets/img/Logo-INovaTec-2.0.png"
-import { useState} from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
-
-
 const LoginForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate(); // Hook para redirigir
+   // const { updateClientID } = useContext(ClientContext);
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -22,15 +21,27 @@ const LoginForm = () => {
             username,
             password
           });
-    
-          // Guarda el token en el almacenamiento local o en el estado de la aplicación
-          const { token} = response.data;
-          localStorage.setItem('authToken', token);
 
-    
-          // Redirige al usuario a la página principal o realiza alguna otra acción
-          navigate('/home')
+          // Verifica la estructura de la respuesta
+          console.log(response.data); // Para verificar la estructura de la respuesta
+
+          // Guarda el token en el almacenamiento local o en el estado de la aplicación
+          const { token, clienteID } = response.data;
+          
+          if (token) {
+            localStorage.setItem('authToken', token);
+          }
+          
+          if (clienteID) {
+           // updateClientID(clienteID); // Actualizar clientID en el contexto después del login exitoso
+           console.log(clienteID)
+            sessionStorage.setItem("clientID", clienteID)
+            navigate('/home');
+          } else {
+            throw new Error("clientID no encontrado en la respuesta");
+          }
         } catch (error) {
+            console.error('Error during login:', error);
             toast.error('Usuario o contraseña incorrectos', {
                 position: "top-right",
                 autoClose: 5000,
@@ -88,4 +99,4 @@ const LoginForm = () => {
   );
 }
 
-export default LoginForm
+export default LoginForm;

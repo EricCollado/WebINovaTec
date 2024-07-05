@@ -1,15 +1,19 @@
 import Navbar from "../HomeForm/Navbar";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Button } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import './Cuentas.css'; // Importamos los estilos adicionales
+import { useNavigate } from 'react-router-dom';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace'; // Importar ícono de retroceso
+import './Cuentas.css'; // Importar estilos adicionales
 
 export const Cuentas = () => {
     const [movimientos, setMovimientos] = useState([]);
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikp1YW4iLCJyb2xlIjoiQWRtaW4iLCJDbGllbnRlSUQiOiIxIiwibmJmIjoxNzIwMDM3NzQ0LCJleHAiOjE3MjA5MDE3NDQsImlhdCI6MTcyMDAzNzc0NCwiaXNzIjoiSnd0SXNzdWVyIiwiYXVkIjoiSnd0QXVkaWVuY2UifQ.4ijDafv4X7qmmbyGLAulJn2zg5zJVVhJ-f__0JenYrQ';
+    const cuentaId = sessionStorage.cuentaId;
+    const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('https://localhost:7033/api/Movimientos/Cuenta/1', {
+        axios.get(`https://localhost:7033/api/Movimientos/Cuenta/${cuentaId}`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Accept': 'text/plain'
@@ -23,13 +27,28 @@ export const Cuentas = () => {
         });
     }, []);
 
+    const handleBackClick = () => {
+        navigate('/cuentas');
+    };
+
     return (
         <>
             <Navbar />
             <div className="main-container">
+          
                 <div className="tabla-container">
-                    {movimientos.length > 0 && (
+                    {movimientos.length > 0 ? (
                         <TableContainer component={Paper} className="tablaMovimientos">
+                            <TableRow>
+                            <Button className="atras"
+                                    variant="contained" 
+                                    onClick={handleBackClick}
+                                    startIcon={<KeyboardBackspaceIcon />} // Ícono de retroceso
+                                >
+                                    {/* Texto opcional para accesibilidad */}
+                                    
+                                </Button>
+                          </TableRow>
                             <Table>
                                 <TableHead>
                                     <TableRow>
@@ -51,6 +70,10 @@ export const Cuentas = () => {
                                 </TableBody>
                             </Table>
                         </TableContainer>
+                    ) : (
+                        <Typography variant="h5" color="text.primary">
+                            No se encontraron movimientos para esta cuenta.
+                        </Typography>
                     )}
                 </div>
             </div>
