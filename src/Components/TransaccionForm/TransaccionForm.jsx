@@ -1,11 +1,9 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import {
   Container, Typography, Select, MenuItem, FormControl, InputLabel, TextField, Button,
   Alert, AlertTitle, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText,
-  IconButton
 } from '@mui/material';
-import { ClientContext } from '../clientID';
 import { CheckCircle, Cancel, AccountBalanceWallet } from '@mui/icons-material';
 import Navbar from '../HomeForm/Navbar';
 import './TransaccionForm.css';
@@ -18,7 +16,6 @@ const TransaccionForm = () => {
   const [monto, setMonto] = useState('');
   const [success, setSuccess] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
-  const { clientID } = useContext(ClientContext);
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikp1YW4iLCJyb2xlIjoiQWRtaW4iLCJDbGllbnRlSUQiOiIxIiwibmJmIjoxNzIwMDM3NzQ0LCJleHAiOjE3MjA5MDE3NDQsImlhdCI6MTcyMDAzNzc0NCwiaXNzIjoiSnd0SXNzdWVyIiwiYXVkIjoiSnd0QXVkaWVuY2UifQ.4ijDafv4X7qmmbyGLAulJn2zg5zJVVhJ-f__0JenYrQ';
   const clientIDe = sessionStorage.getItem('clientID');
 

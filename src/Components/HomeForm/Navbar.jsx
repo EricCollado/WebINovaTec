@@ -22,11 +22,11 @@ const Navbar = () => {
           onMouseEnter={() => handleMouseEnter('transferencias')}
           onMouseLeave={() => handleMouseLeave('transferencias')}
         >
-          <a href="">Transferencias y pagos</a>
+          <a href="/cuentas/transacciones">Transferencias y pagos</a>
           {dropdown.transferencias && (
             <div className='dropdown'>
               <a href="/transaccion">Nueva transferencia</a>
-              <a href="/transferencias/historial">Historial de transferencias</a>
+              <a href="/pagoPrestamos">Pago Préstamos</a>
             </div>
           )}
         </div>
@@ -35,12 +35,11 @@ const Navbar = () => {
           onMouseEnter={() => handleMouseEnter('productos')}
           onMouseLeave={() => handleMouseLeave('productos')}
         >
-          <a href="/">Mis productos</a>
+          <a href="/cuentas">Mis productos</a>
           {dropdown.productos && (
             <div className='dropdown'>
               <a href="/cuentas">Cuentas</a>
-              <a href="/productos/tarjetas">Tarjetas</a>
-              <a href="/productos/prestamos">Préstamos</a>
+              <a href="/prestamos">Préstamos</a>
             </div>
           )}
         </div>

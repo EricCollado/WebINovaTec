@@ -9,6 +9,8 @@ import Cuentas from './Components/CuentasForm/Cuentas'
 import CuentasCliente from './Components/CuentasForm/CuentaCliente';
 import { ClientProvider } from './Components/clientID';
 import TransaccionForm from './Components/TransaccionForm/TransaccionForm';
+import PrestamosForm from './Components/PrestamosForm/PrestamosForm';
+import PagoPrestamosForm from './Components/PagoPrestamosForm/PagoPrestamosForm';
 
 function App() {
 
@@ -22,6 +24,9 @@ function App() {
       <Route path="/cuentas" element={<CuentasCliente/>} />
       <Route path="/cuentas/transacciones" element={<Cuentas/>} />
       <Route path="/transaccion" element={<TransaccionForm/>} />
+      <Route path="/prestamos" element={<PrestamosForm/>} />
+      <Route path="/pagoPrestamos" element={<PagoPrestamosForm/>} />
+      
 
     </Routes>
   </Router>
