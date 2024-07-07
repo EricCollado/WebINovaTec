@@ -64,7 +64,6 @@
     font-size: 1rem;
     border-radius: 8px;
   }
-  
   .submit-button:hover {
     background-color: #0056b3; /* Azul más oscuro en hover */
   }
@@ -102,3 +101,38 @@
     color: rgba(255, 255, 255, 0.8); /* Texto semi-transparente */
   }
   
+  .form-control {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .form-control .MuiInputBase-input, .form-control .MuiInputLabel-root {
+    color: white; /* Texto blanco */
+  }
+  
+  .form-control .MuiOutlinedInput-root fieldset {
+    border-color: white; /* Borde blanco */
+  }
+  
+  .form-control .MuiOutlinedInput-root:hover fieldset {
+    border-color: #ddd; /* Borde blanco más claro en hover */
+  }
+  
+  .form-control .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: white; /* Borde blanco al estar enfocado */
+  }
+  
+  .form-select {
+    margin-bottom: 15px; /* Espacio adicional entre los selects */
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-title {
+    align-self: flex-start; /* Alinea el título a la izquierda */
+    margin-bottom: 10px; /* Espacio adicional debajo del título */
+  }

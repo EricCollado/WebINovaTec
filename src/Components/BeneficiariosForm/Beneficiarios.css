@@ -1,0 +1,76 @@
+.beneficiarios-container {
+    margin-top: 100px; /* Añadir un margen superior para evitar la superposición con el navbar */
+    padding-left: 20px; /* Añadir un padding a la izquierda para una mejor separación */
+  }
+  
+  .beneficiario-card {
+    transition: transform 0.2s; /* Añadir una transición para un efecto hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir una sombra suave */
+  }
+  
+  .beneficiario-card:hover {
+    transform: scale(1.05); /* Agrandar la tarjeta ligeramente al pasar el mouse */
+  }
+
+  .add-beneficiarios-container {
+    margin-top: 80px; /* Ajuste para que el contenido no quede detrás del navbar */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para mejor contraste */
+    color: white; /* Texto blanco */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para mayor profundidad */
+    position: relative; /* Asegura que los alerts se posicionen correctamente */
+
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form-control {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .form-control .MuiInputBase-input, .form-control .MuiInputLabel-root {
+    color: white; /* Texto blanco */
+  }
+  
+  .form-control .MuiOutlinedInput-root fieldset {
+    border-color: white; /* Borde blanco */
+  }
+  
+  .form-control .MuiOutlinedInput-root:hover fieldset {
+    border-color: #ddd; /* Borde blanco más claro en hover */
+  }
+  
+  .form-control .MuiOutlinedInput-root.Mui-focused fieldset {
+    border-color: white; /* Borde blanco al estar enfocado */
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #007bff; /* Azul brillante */
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3; /* Azul más oscuro en hover */
+  }
+  
+  .alert {
+    position: absolute;
+    top: 10px; /* Ajuste para que aparezca en la parte superior del contenedor */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    width: 80%;
+    max-width: 500px;  }
+  
+  

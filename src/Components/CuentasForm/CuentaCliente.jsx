@@ -35,9 +35,15 @@ const CuentasCliente = () => {
     // Redirigir al componente de transacciones
     navigate('/cuentas/transacciones');
   };
-  const getRandomAccountType = (index) => {
-    const types = ["Cuenta de Ahorros", "Cuenta Corriente"];
-    return types[index % 2];
+
+  const getAccountType = (tipoCuentaID) => {
+    if (tipoCuentaID === 1) {
+      return "Cuenta Corriente";
+    } else if (tipoCuentaID === 2) {
+      return "Cuenta de ahorros";
+    } else {
+      return "Tipo de cuenta desconocido";
+    }
   };
 
   return (
@@ -46,12 +52,12 @@ const CuentasCliente = () => {
       <Container className="main-container">
         <div className="card-container">
           {cuentas.length > 0 ? (
-            cuentas.map((cuenta, index) => (
+            cuentas.map((cuenta) => (
               <div className="card-item" key={cuenta.cuentaId}>
                 <Card>
                   <CardContent>
                     <Typography variant="h5" component="div">
-                      {getRandomAccountType(index)}
+                      {getAccountType(cuenta.tipoCuentaID)}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       Balance: RD$ {cuenta.balance}

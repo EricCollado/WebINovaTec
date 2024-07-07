@@ -33,7 +33,7 @@ const PrestamosForm = () => {
     sessionStorage.setItem('prestamoId', prestamoId);
 
     // Redirigir al componente de pago de préstamos
-    navigate('/prestamos/pagar');
+    navigate('/prestamos');
   };
 
   const formatMonto = (monto) => {

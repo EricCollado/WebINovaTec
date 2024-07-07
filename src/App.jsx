@@ -11,6 +11,8 @@ import { ClientProvider } from './Components/clientID';
 import TransaccionForm from './Components/TransaccionForm/TransaccionForm';
 import PrestamosForm from './Components/PrestamosForm/PrestamosForm';
 import PagoPrestamosForm from './Components/PagoPrestamosForm/PagoPrestamosForm';
+import BeneficiariosForm from './Components/BeneficiariosForm/BeneficiariosForm';
+import AddBeneficiarios from './Components/BeneficiariosForm/AddBeneficiarios';
 
 function App() {
 
@@ -19,6 +21,7 @@ function App() {
     <ClientProvider>
     <Router>
     <Routes>
+    <Route path="/" element={<LoginForm/>} />
       <Route path="/login" element={<LoginForm/>} />
       <Route path="/home" element={<Home/>} />
       <Route path="/cuentas" element={<CuentasCliente/>} />
@@ -26,6 +29,10 @@ function App() {
       <Route path="/transaccion" element={<TransaccionForm/>} />
       <Route path="/prestamos" element={<PrestamosForm/>} />
       <Route path="/pagoPrestamos" element={<PagoPrestamosForm/>} />
+      <Route path="/beneficiarios/lista" element={<BeneficiariosForm/>} />
+      <Route path="/beneficiarios/nuevo" element={<AddBeneficiarios/>} />
+     
+      
       
 
     </Routes>

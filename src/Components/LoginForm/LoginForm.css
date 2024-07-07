@@ -1,130 +1,74 @@
-body{
-background: url('../Assets/img/background-login.jpg')
-no-repeat;
-background-size: cover;
-background-position: center;
-}
 .wrapper {
-    width: 420px;
-    background: #143546    ;
-    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('../Assets/img/background-login.jpg') no-repeat center center/cover;
+}
+
+.form-box {
+    background-color: #002f4b;
+    padding: 20px;
     border-radius: 10px;
-    padding: 30px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .logo-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px; /* Ajusta la altura según tus necesidades */
+    margin-bottom: 20px;
 }
 
 .logo {
-    max-width: 100%; /* Asegúrate de que la imagen no exceda el ancho del contenedor */
-    max-height: 100%; /* Asegúrate de que la imagen no exceda la altura del contenedor */
-    width: auto; /* Mantén la proporción del ancho */
-    height: auto; /* Mantén la proporción de la altura */
-    object-fit: cover; /* Escalar la imagen para cubrir todo el contenedor */
-  margin: 10px; 
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-
-.wrapper h1 {
-    font-size: 36px;
+h1 {
     text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff; /* Cambia el color del texto a blanco para mejor visibilidad */
 }
 
-.wrapper .input-box{
+.input-box {
     position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box input {
     width: 100%;
-    height: 50px;
-    margin: 30px 0;
-}
-
-.input-box input{
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    outline: none;
-    border: 2px solid rgba(255, 255, 255, .2);
-    border-radius: 40px;
-    font-size: 16px;
-    color: #fff;
-    padding: 20px 45px 20px 20px;
-}
-
-.input-box input::placeholder{
-    color: #fff;
-}
-
-.input-box .icon{
-   position: absolute;
-   right: 20px;
-   top: 50%;
-   transform: translateY(-50%) ;
-    font-size: 16px;
-}
-.icon{
-    color: #333;
-}
-
-.error-message {
-    color: #ff4d4d;
-    background-color: #ffe6e6;
-    border: 1px solid #ff1a1a;
-    border-radius: 4px;
     padding: 10px;
-    margin: 10px 0;
-    text-align: center;
-    font-weight: bold;
-}
-.wrapper .remember-forgot{
-    display: flex;
-    justify-content: space-between;
-    font-size: 14.5px;
-    margin: -15px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.remember-forgot label input{
-    accent-color: #fff;
-    margin-right: 4px;
+.input-box .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    color: #999;
 }
 
-.remember-forgot a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.remember-forgot a:hover{
-    text-decoration: underline;
-}
-
-.wrapper button {
+button {
     width: 100%;
-    height: 45px;
-    background: #fff;
+    padding: 10px;
     border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    cursor: pointer;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
     font-size: 16px;
-    color: #333;
-    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.wrapper .register-link {
-    font-size: 14.5px;
-    text-align: center;
-    margin: 20px 0 15px;
-}
-
-.register-link p a{
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.register-link p a:hover{
-    text-decoration: underline;
+button:hover {
+    background-color: #0056b3;
 }

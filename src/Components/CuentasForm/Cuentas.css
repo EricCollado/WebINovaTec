@@ -88,3 +88,9 @@
 .transparent-row {
     background-color: transparent;
 }
+
+.scrollable-table {
+    max-height: 400px; /* Ajusta esta altura según tus necesidades */
+    overflow-y: auto;
+    margin-top: 20px;
+}

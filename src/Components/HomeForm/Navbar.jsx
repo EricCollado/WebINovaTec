@@ -1,8 +1,14 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../Assets/img/Logo-INovaTec-2.0.png'; // Asegúrate de ajustar la ruta de la imagen del logo
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from '@mui/material';
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState({});
+  const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
+  const navigate = useNavigate();
+
 
   const handleMouseEnter = (menu) => {
     setDropdown({ ...dropdown, [menu]: true });
@@ -12,11 +18,28 @@ const Navbar = () => {
     setDropdown({ ...dropdown, [menu]: false });
   };
 
+  const handleLogoutClick = () => {
+    setLogoutDialogOpen(true);
+  };
+
+  const handleLogoutConfirm = () => {
+    setLogoutDialogOpen(false);
+    // eslint-disable-next-line no-undef
+    navigate('/login');
+  };
+
+  const handleLogoutCancel = () => {
+    setLogoutDialogOpen(false);
+  };
+
+
   return (
     <header className='header'>
       <a href="/home" className='logo'><div><img src={logo} alt="Logo" /></div></a>
       <nav className='navbar'>
-        <a href="/login">Home</a>
+        <div className='nav-item'> 
+        <a href="/home">Home</a>
+        </div>
         <div 
           className='nav-item'
           onMouseEnter={() => handleMouseEnter('transferencias')}
@@ -26,7 +49,6 @@ const Navbar = () => {
           {dropdown.transferencias && (
             <div className='dropdown'>
               <a href="/transaccion">Nueva transferencia</a>
-              <a href="/pagoPrestamos">Pago Préstamos</a>
             </div>
           )}
         </div>
@@ -48,7 +70,7 @@ const Navbar = () => {
           onMouseEnter={() => handleMouseEnter('beneficiarios')}
           onMouseLeave={() => handleMouseLeave('beneficiarios')}
         >
-          <a href="/">Beneficiarios</a>
+          <a href="/beneficiarios/lista">Beneficiarios</a>
           {dropdown.beneficiarios && (
             <div className='dropdown'>
               <a href="/beneficiarios/nuevo">Agregar beneficiario</a>
@@ -56,7 +78,21 @@ const Navbar = () => {
             </div>
           )}
         </div>
+        
+        <div className='nav-item logout' onClick={handleLogoutClick}>
+          <LogoutIcon />
+        </div>
       </nav>
+      <Dialog open={logoutDialogOpen} onClose={handleLogoutCancel}>
+        <DialogTitle>Confirmar Desconexión</DialogTitle>
+        <DialogContent>
+          ¿Estás seguro de que deseas desconectarte?
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleLogoutCancel} color="primary">Cancelar</Button>
+          <Button onClick={handleLogoutConfirm} color="secondary">Desconectar</Button>
+        </DialogActions>
+      </Dialog>
     </header>
   );
 }
