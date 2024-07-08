@@ -1,14 +1,12 @@
 .prestamos-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Cambiado de center a flex-start para alinear a la izquierda */
-    margin-top: 100px; /* Añadir un margen superior para evitar la superposición con el navbar */
-    padding-left: 20px; /* Añadir un padding a la izquierda para una mejor separación */
-  }
-  
-  .prestamo-card {
-    width: 100%; /* Ajustado para ocupar todo el ancho del contenedor */
-    margin-bottom: 20px;
-  }
-  
-  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Mantener alineación a la izquierda */
+  margin-top: 20px; /* Reducir margen superior para que aparezcan más arriba */
+  padding-left: 20px; /* Mantener padding a la izquierda para separación */
+}
+
+.prestamo-card {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  margin-bottom: 20px; /* Mantener margen inferior para separar tarjetas */
+}

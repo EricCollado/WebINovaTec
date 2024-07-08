@@ -5,7 +5,7 @@
     align-items: center;
     width: 100%;
     padding: 20px;
-    margin-top: 80px; /* Aumenta el margen superior para despegarlo del navbar */
+    margin-top: 20px; /* Reduce el margen superior para que la tabla esté más arriba */
 }
 
 .tabla-container {
@@ -33,32 +33,32 @@
     overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
 }
 
-.MuiTableCell-root {
+.custom-table .MuiTableCell-root {
     padding: 16px;
     font-size: 16px;
 }
 
-.MuiTableCell-head {
+.custom-table .MuiTableCell-head {
     background-color: #143546; /* Cambia el color de fondo del encabezado */
-    color: transparent; /* Cambia el color del texto del encabezado */
+    color: #fff; /* Cambia el color del texto del encabezado */
     font-weight: bold;
     text-align: left; /* Alineamos el texto a la izquierda */
 }
 
-.MuiTableCell-body {
+.custom-table .MuiTableCell-body {
     color: #333;
 }
 
-.MuiTableRow-root:nth-of-type(odd) {
+.custom-table .MuiTableRow-root:nth-of-type(odd) {
     background-color: #f5f5f5; /* Color de fondo para filas impares */
 }
 
-.MuiTableRow-root:hover {
+.custom-table .MuiTableRow-root:hover {
     background-color: #e0f7fa; /* Color de fondo al pasar el ratón */
 }
 
 @media (max-width: 768px) {
-    .MuiTableCell-root {
+    .custom-table .MuiTableCell-root {
         padding: 8px;
         font-size: 14px;
     }
@@ -82,15 +82,8 @@
     border-radius: 8px; /* Similar al estilo de las tablas */
 }
 
-.atras-container {
-  background: transparent;
-}
-.transparent-row {
-    background-color: transparent;
-}
-
 .scrollable-table {
     max-height: 400px; /* Ajusta esta altura según tus necesidades */
     overflow-y: auto;
-    margin-top: 20px;
+    margin-top: 10px; /* Reduce el margen superior para acercar más la tabla */
 }
