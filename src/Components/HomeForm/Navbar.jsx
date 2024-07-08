@@ -45,7 +45,7 @@ const Navbar = () => {
           onMouseEnter={() => handleMouseEnter('transferencias')}
           onMouseLeave={() => handleMouseLeave('transferencias')}
         >
-          <a href="/cuentas/transacciones">Transferencias y pagos</a>
+          <a href="/transaccion">Transferencias y pagos</a>
           {dropdown.transferencias && (
             <div className='dropdown'>
               <a href="/transaccion">Nueva transferencia</a>
