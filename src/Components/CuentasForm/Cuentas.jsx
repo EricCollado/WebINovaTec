@@ -2,14 +2,12 @@ import Navbar from "../HomeForm/Navbar";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Button } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Cuentas.css'; // Importar estilos adicionales
 
 export const Cuentas = () => {
     const [movimientos, setMovimientos] = useState([]);
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikp1YW4iLCJyb2xlIjoiQWRtaW4iLCJDbGllbnRlSUQiOiIxIiwibmJmIjoxNzIwMDM3NzQ0LCJleHAiOjE3MjA5MDE3NDQsImlhdCI6MTcyMDAzNzc0NCwiaXNzIjoiSnd0SXNzdWVyIiwiYXVkIjoiSnd0QXVkaWVuY2UifQ.4ijDafv4X7qmmbyGLAulJn2zg5zJVVhJ-f__0JenYrQ';
     const cuentaId = sessionStorage.cuentaId;
-    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`https://localhost:7033/api/Movimientos/Cuenta/${cuentaId}`, {

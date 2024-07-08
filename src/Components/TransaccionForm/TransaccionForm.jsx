@@ -125,7 +125,7 @@ const TransaccionForm = () => {
         'Content-Type': 'application/json'
       }
     })
-    .then(response => {
+    .then(() => {
       setSuccess(true);
     })
     .catch(error => {
