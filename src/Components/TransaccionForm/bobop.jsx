@@ -4,10 +4,10 @@ import {
   Container, Typography, Select, MenuItem, FormControl, InputLabel, TextField, Button,
   Alert, AlertTitle, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText,
 } from '@mui/material';
-import { CheckCircle, Cancel, AccountBalanceWallet } from '@mui/icons-material';
+import { AccountBalanceWallet } from '@mui/icons-material';
 import Navbar from '../HomeForm/Navbar';
-import './TransaccionForm.css';
 import jsPDF from 'jspdf';
+import './TransaccionForm.css';
 
 const TransaccionForm = () => {
   const [cuentas, setCuentas] = useState([]);
@@ -19,10 +19,10 @@ const TransaccionForm = () => {
   const [monto, setMonto] = useState('');
   const [success, setSuccess] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
+  const [openInvoiceDialog, setOpenInvoiceDialog] = useState(false); // Nuevo estado para el diálogo de factura
+  const [transactionDetails, setTransactionDetails] = useState({}); // Nuevo estado para guardar los detalles de la transacción
   const [error, setError] = useState('');
   const [transaccionID,setTransaccionID] = useState({})
-  const [openInvoiceDialog, setOpenInvoiceDialog] = useState(false)
-  const [transactionDetails, setTransactionDetails] = useState({});
   const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikp1YW4iLCJyb2xlIjoiQWRtaW4iLCJDbGllbnRlSUQiOiIxIiwibmJmIjoxNzIwMDM3NzQ0LCJleHAiOjE3MjA5MDE3NDQsImlhdCI6MTcyMDAzNzc0NCwiaXNzIjoiSnd0SXNzdWVyIiwiYXVkIjoiSnd0QXVkaWVuY2UifQ.4ijDafv4X7qmmbyGLAulJn2zg5zJVVhJ-f__0JenYrQ';
   const clientIDe = sessionStorage.getItem('clientID');
 
@@ -48,7 +48,7 @@ const TransaccionForm = () => {
         }
       })
       .then(response => {
-        setBeneficiarios(response.data.$values);
+        setBeneficiarios(response.data);
       })
       .catch(error => {
         console.error('Error fetching beneficiarios:', error);
@@ -133,7 +133,7 @@ const TransaccionForm = () => {
       setSuccess(true);
       setTransactionDetails(transaccion);
       setTransaccionID(response.data) // Guardar los detalles de la transacción
-      setOpenInvoiceDialog(true);
+      setOpenInvoiceDialog(true); // Abrir el diálogo de factura
     })
     .catch(error => {
       console.error('Error realizando la transacción:', error);
@@ -181,9 +181,6 @@ const TransaccionForm = () => {
     // Guardar el PDF
     doc.save('Recibo_Transaccion.pdf');
   };
-
-
-
   return (
     <>
       <Navbar />
@@ -260,55 +257,58 @@ const TransaccionForm = () => {
                 labelId="beneficiario-label"
                 value={beneficiarioID}
                 onChange={handleBeneficiarioChange}
-                className="form-select"
               >
                 {beneficiarios.map(beneficiario => (
-                  <MenuItem key={beneficiario.beneficiarioID} value={beneficiario.beneficiarioID}>
-                    {beneficiario.nombre} - Cuenta ID: {beneficiario.cuentaID}
+                  <MenuItem key={beneficiario.beneficiarioId} value={beneficiario.beneficiarioId}>
+                    {beneficiario.nombre}
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
           )}
 
-          <FormControl variant="outlined" className="form-control">
-            <TextField
-              label="Monto a transferir"
-              value={monto}
-              onChange={handleMontoChange}
-              type="number"
-              className="form-input"
-            />
-          </FormControl>
+          <TextField
+            label="Monto"
+            variant="outlined"
+            type="number"
+            value={monto}
+            onChange={handleMontoChange}
+            className="form-control"
+          />
 
           <Button
+            type="button"
             variant="contained"
             color="primary"
-            className="form-button"
-            endIcon={<AccountBalanceWallet />}
+            startIcon={<AccountBalanceWallet />}
             onClick={handleOpenDialog}
+            className="form-control"
           >
-            Realizar Transferencia
+            Transferir
           </Button>
 
-        <Dialog open={openDialog} onClose={handleCloseDialog}>
-          <DialogTitle>Confirmar Transferencia</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              ¿Está seguro que desea realizar la transferencia de RD$ {monto} desde la cuenta {cuentaOrigen} a la cuenta {cuentaDestino}?
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleCloseDialog} color="secondary" startIcon={<Cancel />}>
-              Cancelar
-            </Button>
-            <Button onClick={handleSubmit} color="primary" startIcon={<CheckCircle />}>
-              Confirmar
-            </Button>
-          </DialogActions>
-        </Dialog>
+          <Dialog
+            open={openDialog}
+            onClose={handleCloseDialog}
+            aria-labelledby="confirmar-transaccion-dialog"
+          >
+            <DialogTitle id="confirmar-transaccion-dialog">Confirmar Transacción</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                ¿Estás seguro de que deseas realizar esta transacción?
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCloseDialog} color="primary">
+                Cancelar
+              </Button>
+              <Button onClick={handleSubmit} color="primary" autoFocus>
+                Confirmar
+              </Button>
+            </DialogActions>
+          </Dialog>
 
-        <Dialog
+          <Dialog
             open={openInvoiceDialog}
             onClose={() => setOpenInvoiceDialog(false)}
             aria-labelledby="ver-factura-dialog"
@@ -329,7 +329,6 @@ const TransaccionForm = () => {
             </DialogActions>
           </Dialog>
         </form>
-
       </Container>
     </>
   );

@@ -1,5 +1,5 @@
 import Navbar from "../HomeForm/Navbar";
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Button } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './Cuentas.css'; // Importar estilos adicionales
