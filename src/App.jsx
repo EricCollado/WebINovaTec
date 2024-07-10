@@ -10,7 +10,6 @@ import CuentasCliente from './Components/CuentasForm/CuentaCliente';
 import { ClientProvider } from './Components/clientID';
 import TransaccionForm from './Components/TransaccionForm/TransaccionForm';
 import PrestamosForm from './Components/PrestamosForm/PrestamosForm';
-import PagoPrestamosForm from './Components/PagoPrestamosForm/PagoPrestamosForm';
 import BeneficiariosForm from './Components/BeneficiariosForm/BeneficiariosForm';
 import AddBeneficiarios from './Components/BeneficiariosForm/AddBeneficiarios';
 
@@ -28,7 +27,7 @@ function App() {
       <Route path="/cuentas/transacciones" element={<Cuentas/>} />
       <Route path="/transaccion" element={<TransaccionForm/>} />
       <Route path="/prestamos" element={<PrestamosForm/>} />
-      <Route path="/pagoPrestamos" element={<PagoPrestamosForm/>} />
+
       <Route path="/beneficiarios/lista" element={<BeneficiariosForm/>} />
       <Route path="/beneficiarios/nuevo" element={<AddBeneficiarios/>} />
      

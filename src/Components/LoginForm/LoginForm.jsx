@@ -16,7 +16,7 @@ const LoginForm = () => {
         event.preventDefault();
     
         try {
-            const response = await axios.post('https://localhost:7033/api/auth/login', {
+            const response = await axios.post('https://localhost:5001/api/auth/login', {
                 username,
                 password
             });

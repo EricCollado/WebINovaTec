@@ -14,7 +14,7 @@ const CuentasCliente = () => {
   
   useEffect(() => {
     console.log(clientID);
-    axios.get(`https://localhost:7033/api/Cuentas/Cliente/${clientIDe}`, {
+    axios.get(`https://localhost:5001/api/Cuentas/Cliente/${clientIDe}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Accept': 'text/plain'

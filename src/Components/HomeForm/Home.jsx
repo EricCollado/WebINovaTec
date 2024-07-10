@@ -11,7 +11,7 @@ export const Home = () => {
  const clientIDe = sessionStorage.clientID;
 
   useEffect(() => {
-    axios.get(`https://localhost:7033/api/Clientes/${clientIDe}`, {
+    axios.get(`https://localhost:5001/api/Clientes/${clientIDe}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Accept': 'text/plain'

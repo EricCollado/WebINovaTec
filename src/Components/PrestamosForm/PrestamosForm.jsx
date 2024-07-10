@@ -14,7 +14,7 @@ const PrestamosForm = () => {
   const clientIDe = sessionStorage.getItem('clientID');
 
   useEffect(() => {
-    axios.get(`https://localhost:7033/api/Prestamos/Cliente/${clientIDe}`, {
+    axios.get(`https://localhost:5001/api/Prestamos/Cliente/${clientIDe}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Accept': 'text/plain'

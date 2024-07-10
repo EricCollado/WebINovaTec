@@ -27,7 +27,7 @@ const TransaccionForm = () => {
   const clientIDe = sessionStorage.getItem('clientID');
 
   useEffect(() => {
-    axios.get(`https://localhost:7033/api/Cuentas/Cliente/${clientIDe}`, {
+    axios.get(`https://localhost:5001/api/Cuentas/Cliente/${clientIDe}`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Accept': 'text/plain'
@@ -41,7 +41,7 @@ const TransaccionForm = () => {
     });
 
     if (tipoCuenta === 'Terceros en el banco') {
-      axios.get('https://localhost:7033/api/Beneficiarios', {
+      axios.get('https://localhost:5001/api/Beneficiarios', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Accept': 'text/plain'
@@ -122,7 +122,7 @@ const TransaccionForm = () => {
       tipoTransaccionID: tipoCuenta === 'Entre mis cuentas' ? 3 : 4
     };
 
-    axios.post('https://localhost:7033/api/Transacciones', transaccion, {
+    axios.post('https://localhost:5001/api/Transacciones', transaccion, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Accept': 'application/json',

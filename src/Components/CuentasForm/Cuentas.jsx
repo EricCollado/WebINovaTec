@@ -10,7 +10,7 @@ export const Cuentas = () => {
     const cuentaId = sessionStorage.cuentaId;
 
     useEffect(() => {
-        axios.get(`https://localhost:7033/api/Movimientos/Cuenta/${cuentaId}`, {
+        axios.get(`https://localhost:5001/api/Movimientos/Cuenta/${cuentaId}`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Accept': 'text/plain'

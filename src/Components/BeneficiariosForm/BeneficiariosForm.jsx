@@ -10,7 +10,7 @@ export const BeneficiariosForm = () => {
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Ikp1YW4iLCJyb2xlIjoiQWRtaW4iLCJDbGllbnRlSUQiOiIxIiwibmJmIjoxNzIwMDM3NzQ0LCJleHAiOjE3MjA5MDE3NDQsImlhdCI6MTcyMDAzNzc0NCwiaXNzIjoiSnd0SXNzdWVyIiwiYXVkIjoiSnd0QXVkaWVuY2UifQ.4ijDafv4X7qmmbyGLAulJn2zg5zJVVhJ-f__0JenYrQ';
   
     useEffect(() => {
-      axios.get('https://localhost:7033/api/Beneficiarios', {
+      axios.get('https://localhost:5001/api/Beneficiarios', {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Accept': 'text/plain'
